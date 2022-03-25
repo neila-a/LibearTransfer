@@ -1,0 +1,14 @@
+{
+  "name": "libeartransfer-server",
+  "version": "1.0.0",
+  "description": "LibearTransfer's server",
+  "main": "index.js",
+  "scripts": {
+    "test": "sudo node index.js"
+  },
+  "author": "neila",
+  "license": "ISC",
+  "dependencies": {
+    "websocket": "^1.0.34"
+  }
+}
