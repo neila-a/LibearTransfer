@@ -4,7 +4,7 @@
   "description": "LibearTransfer's server",
   "main": "index.js",
   "scripts": {
-    "test": "sudo node index.js"
+    "test": "node index.js"
   },
   "author": "neila",
   "license": "ISC",
