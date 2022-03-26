@@ -1,10 +1,11 @@
 {
-  "name": "libeartransfer-server",
+  "name": "libeartransfer-backstage",
   "version": "1.0.0",
-  "description": "LibearTransfer's server",
+  "description": "LibearTransfer's BackStage.",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "test": "node index.js",
+    "upload": "git commit -am 'A commit.' && git push heroku main:main"
   },
   "author": "neila",
   "license": "ISC",
