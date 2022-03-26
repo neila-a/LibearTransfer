@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "websocket": "^1.0.34"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
