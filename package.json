@@ -4,8 +4,8 @@
   "description": "LibearTransfer's BackStage.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "node index.js",
+    "start": "sudo node index.js",
+    "test": "sudo node index.js",
     "upload": "git commit -am 'A commit.' && git push heroku main:main"
   },
   "author": "neila",
