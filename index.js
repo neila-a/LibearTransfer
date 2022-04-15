@@ -1,6 +1,5 @@
-var server = new require(
-    "ws"
-).Server(
+const cs = require("ws").Server;
+var server = new cs(
     {
         port: 2319
     }

@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "node index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "log": "heroku logs -t -a=libeartransfer-backstage",
+    "upload": "git commit -am \"A commit.\" && git push heroku main"
   },
   "author": "neila",
   "license": "ISC",
