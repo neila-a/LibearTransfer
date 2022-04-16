@@ -1,7 +1,9 @@
 const cs = require("ws").Server;
+var port = process.env.PORT || 2319;
+console.log(port);
 var server = new cs(
     {
-        port: process.env.PORT || 2319
+        port: port
     }
 );
 server.on(
