@@ -14,7 +14,7 @@ wss.on('connection', function (ws) {
     });
     ws.on('message', function (message) {
         console.log("[CLIENT] Sended message")
-        ws.send(message, function (err) {
+        ws.send(message.toString(), function (err) {
             if (err) {
                 console.log(`[SERVER] Error: ${err}`);
             }
