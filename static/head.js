@@ -26,7 +26,7 @@ ws_conn.onopen = function (event) {
 };
 ws_conn.onmessage = function (event) {
     //当客户端收到服务端发来的消息时，触发onmessage事件，参数e.data包含server传递过来的数据
-    console.log(event.data);
+    console.log(event.data.toString());
 };
 ws_conn.onclose = function (event) {
     //当客户端收到服务端发送的关闭连接请求时，触发onclose事件
