@@ -13,11 +13,13 @@ wss.on('connection', function (ws) {
         return console.log('[CLIENT] Disconnected');
     });
     ws.on('message', function (message) {
-        console.log("[CLIENT] Sended message")
-        ws.send(message.toString(), function (err) {
-            if (err) {
-                console.log(`[SERVER] Error: ${err}`);
-            }
+        console.log("[CLIENT] Sended message");
+        wss.clients.forEach(function () {
+            ws.send(message.toString(), function (err) {
+                if (err) {
+                    console.log(`[SERVER] Error: ${err}`);
+                }
+            });
         });
     });
 });
