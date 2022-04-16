@@ -1,4 +1,5 @@
 const cs = require("ws").Server;
+process.env.PORT = 2319;
 var port = process.env.PORT || 2319;
 console.log(`[SERVER] PORT IS ${port}`);
 var server = new cs(
