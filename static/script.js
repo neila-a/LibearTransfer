@@ -34,13 +34,10 @@ snode.innerHTML = `
 `;
 document.head.appendChild(snode);*/
 $("#text").height(document.body.clientHeight/*Math.max(document.body.scrollHeight,document.documentElement.scrollHeight)*/);
-var ws_conn = new WebSocket("ws:libeartransfer-backstage.herokuapp.com:2319");
+var ws_conn = new WebSocket("ws://libeartransfer-backstage.herokuapp.com");
 ws_conn.onopen = function (event) {
     //当WebSocket创建成功时，触发onopen事件
-    layer.open({
-        title: "提示",
-        content: "连接已创建"
-    });
+    alert("连接已创建");
 };
 ws_conn.onmessage = function (event) {
     //当客户端收到服务端发来的消息时，触发onmessage事件，参数e.data包含server传递过来的数据
@@ -54,11 +51,9 @@ ws_conn.onclose = function (event) {
 ws_conn.onerror = function (error) {
     //如果出现连接、处理、接收、发送数据失败的时候触发onerror事件
     console.error(error);
-    layer.open({
-        title: `错误`,
-        content: error
-    });
+    alert(`错误`);
 };
+console.log(ws_conn);
 const upload = function (event) {
     const file = event.target.files[0];
     var outputtext = `[FileReader] 已读取'${file.name}'，最后修改时间是${file.lastModifiedDate}，类别是${file.type}，大小是${file.size}字节。`;
