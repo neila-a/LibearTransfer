@@ -1,7 +1,7 @@
 const cs = require("ws").Server;
 var server = new cs(
     {
-        port: 2319
+        port: process.env.PORT || 2319
     }
 );
 server.on(
@@ -35,4 +35,3 @@ server.on(
     }
 );
 console.log("[SERVER OPENED]");
->>>>>>> parent of acb0b1e (A commit.)
