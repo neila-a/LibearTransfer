@@ -1,0 +1,159 @@
+.blueborder {
+    border: solid;
+    border-color: #3399ff;
+    border-radius: 100px;
+}
+#text {
+    color: #3399ff;
+    text-align: center;
+    margin: 10% 0;
+    font-size: 50px;
+}
+i {
+    font-style: normal;
+}
+progress {
+    left: 10px;
+    bottom: 5px;
+    right: 20px;
+    text-align: center;
+    position: fixed;
+    width: 95%;
+    display: inline-block;
+    height: 40px;
+    z-index: -1;
+}
+p:not(#text) {
+    left: 10px;
+    bottom: 0px;
+    right: 20px;
+    position: fixed;
+    z-index: 0;
+    /*top: calc(423.88px + 30%);*/
+}
+input[type=file] {
+    width: 70px;
+}
+p#jindu {
+    left: 85%;
+}
+p#title {
+    left: 5%;
+}
+#send {
+    margin: 0 45%;
+    background-color: #3399ff;
+    border: none;
+    box-shadow: 0 5px 20px rgb(65 145 245 / 30%);
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    height: 49px;
+    margin-bottom: 20px;
+    transition: background-color .25s,box-shadow .25s,color .25s,opacity .25s;
+    width: 10%;
+}
+.popup {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #3399ff;
+    box-sizing: border-box;
+    height: 390px;
+    left: calc(50% - 250px);
+    opacity: 0;
+    position: absolute;
+    top: calc(50% - 200px);
+    width: 500px;
+    z-index: 2;
+}
+.close-btn, .close-btn-formenu {
+    padding: 30px 0 30px 0;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+}
+.close-btn {
+    position: absolute;
+    right: 50px;
+}
+.close-btn-formenu {
+    position: fixed;
+    right: 25px;
+}
+.close-btn::after, .close-btn-formenu::after{
+    background-color: #b4b4b4;
+    content: "";
+    height: 2px;
+    transition: all .25s;
+    transform: rotate(315deg);
+}
+.close-btn::after {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: calc(50% - 1px);
+}
+.close-btn-formenu::after {
+    width: 25px;
+    position: fixed;
+    right: 25px;
+    top: 25px;
+}
+.close-btn::before, .close-btn-formenu::before {
+    background-color: #b4b4b4;
+    content: "";
+    height: 2px;
+    transition: all .25s;
+    transform: rotate(45deg);
+}
+.close-btn::before {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: calc(50% - 1px);
+}
+.close-btn-formenu::before {
+    width: 25px;
+    position: fixed;
+    right: 25px;
+    top: 25px;
+}
+.menu-icon {
+    cursor: pointer;
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    width: 25px;
+}
+.menu-icon>div:first-of-type {
+    margin-bottom: 6px;
+}
+.menu-icon>div {
+    background-color: #3399ff;
+    height: 2px;
+    transition: all .25s;
+    width: 100%;
+}
+.menu-icon>div:last-of-type {
+    margin-top: 6px;
+}
+#menu {
+    -webkit-app-region: no-drag;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 35px rgb(0 0 0 / 10%);
+    box-sizing: border-box;
+    max-height: calc(100% - 20px);
+    min-width: 160px;
+    overflow: auto;
+    padding: 5px;
+    position: absolute;
+    top: 50px;
+    transition: all .25s;
+    right: 10px;
+}
+#app {
+    z-index: 0;
+}
