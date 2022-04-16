@@ -1,5 +1,5 @@
 const Pusher = require("pusher");
-const url = reqire("url");
+const url = require("url");
 const http = require("http");
 const push = new Pusher({
     appId: "1367653",
