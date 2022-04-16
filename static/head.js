@@ -18,7 +18,7 @@ const mount = function (arg) {
     }
 };
 window.mounts = {};
-var ws_conn = new WebSocket("ws://libeartransfer-backstage.herokuapp.com");
+var ws_conn = new WebSocket("wss://libeartransfer-backstage.herokuapp.com");
 ws_conn.onopen = function (event) {
     //当WebSocket创建成功时，触发onopen事件
     alert("连接已创建");
