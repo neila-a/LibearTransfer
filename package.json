@@ -12,6 +12,9 @@
   "author": "neila",
   "license": "ISC",
   "dependencies": {
-    "ws": "^8.5.0"
+    "http": "^0.0.1-security",
+    "pusher": "^5.0.1",
+    "pusher-js": "^7.0.6",
+    "url": "^0.11.0"
   }
 }
