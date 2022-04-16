@@ -4,27 +4,27 @@ const PORT = process.env.PORT || 80;
 const server = express().use(function (req, res) {
     return res.sendFile(`/static${req.url.replace(/\?.*/, "")}`, { root: __dirname });
 }).listen(PORT, function () {
-    return console.log(`Listening on ${PORT}`);
+    return console.log(`Listening on port ${PORT}.`);
 });
-const wss = new Server({ server });/*
+const wss = new Server({ server });
 wss.on('connection', function (ws) {
-    console.log('[CLIENT] Connected');
+    console.log('[CLIENT] Connected.');
     ws.on('close', function () {
-        return console.log('[CLIENT] Disconnected');
+        return console.log('[CLIENT] Disconnected.');
     });
     ws.on('message', function (message) {
-        console.log("[CLIENT] Sended message");
-        ws.
-            wss.clients.forEach(function () {
-                ws.send(message.toString(), function (err) {
-                    if (err) {
-                        console.log(`[SERVER] Error: ${err}`);
-                    }
-                });
+        const msg = message.toString();
+        console.log("[CLIENT] Sended message.");
+        wss.clients.forEach(function () {
+            ws.send(msg, function (err) {
+                if (err) {
+                    console.log(`[SERVER] Error: ${err}`);
+                }
             });
+        });
     });
-});*/
-
+});
+/*
 function websocket_add_listener(client_sock) {
     // close事件
     client_sock.on("close", function () {
@@ -53,6 +53,6 @@ wss.on("error", on_server_listen_error);
 
 // headers事件, 回给客户端的字符。
 function on_server_headers(data) {
-    console.log(data);
+    console.log("data:", data);
 }
-wss.on("headers", on_server_headers);
+wss.on("headers", on_server_headers);*/
