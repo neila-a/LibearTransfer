@@ -19,11 +19,12 @@ const mount = function (arg) {
 };
 window.mounts = {};
 var href = window.location.href;
+const websocketdatas = [];
 window.ws_conn = new WebSocket(href.substring(0, href.length - 1).replace("http", "ws"));
 const conninit = function () {
     window.ws_conn.onopen = function (event) {
         //当WebSocket创建成功时，触发onopen事件
-        console.log("WebSocket连接已创建.");
+        websocketdatas.push("WebSocket连接已创建.");
     };
     window.ws_conn.onmessage = function (event) {
         //当客户端收到服务端发来的消息时，触发onmessage事件，参数e.data包含server传递过来的数据
@@ -37,7 +38,7 @@ const conninit = function () {
 conninit();
 ws_conn.onclose = function (event) {
     //当客户端收到服务端发送的关闭连接请求时，触发onclose事件
-    console.log("WebSocket连接已关闭。");
+    websocketdatas.push("WebSocket连接已关闭。");
     window.ws_conn = new WebSocket(href.substring(0, href.length - 1).replace("http", "ws"));
     conninit();
     window.ws_conn.onclose = window.oldonclose;
