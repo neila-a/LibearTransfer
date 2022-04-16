@@ -22,3 +22,4 @@ server.on("request", function (req, res) {
     res.end("{ \"status\": \"OK\"}");
     return;
 });
+server.listen(80);
