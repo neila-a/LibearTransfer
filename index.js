@@ -6,7 +6,7 @@ const server = express().use(function (req, res) {
 }).listen(PORT, function () {
     return console.log(`Listening on ${PORT}`);
 });
-const wss = new Server({ server });
+const wss = new Server({ server });/*
 wss.on('connection', function (ws) {
     console.log('[CLIENT] Connected');
     ws.on('close', function () {
@@ -14,12 +14,45 @@ wss.on('connection', function (ws) {
     });
     ws.on('message', function (message) {
         console.log("[CLIENT] Sended message");
-        wss.clients.forEach(function () {
-            ws.send(message.toString(), function (err) {
-                if (err) {
-                    console.log(`[SERVER] Error: ${err}`);
-                }
+        ws.
+            wss.clients.forEach(function () {
+                ws.send(message.toString(), function (err) {
+                    if (err) {
+                        console.log(`[SERVER] Error: ${err}`);
+                    }
+                });
             });
-        });
     });
-});
+});*/
+
+function websocket_add_listener(client_sock) {
+    // close事件
+    client_sock.on("close", function () {
+        console.log("client close");
+    });
+    client_sock.on("error", function (err) {
+        console.log("client error", err);
+    });
+    client_sock.on("message", function (data) {
+        console.log(data);
+        client_sock.send(data.toString());
+    });
+}
+function on_server_client_comming(client_sock) {
+    console.log("client comming");
+    websocket_add_listener(client_sock);
+}
+
+wss.on("connection", on_server_client_comming);
+
+// error事件,表示的我们监听错误;
+function on_server_listen_error(err) {
+    console.log(err)
+}
+wss.on("error", on_server_listen_error);
+
+// headers事件, 回给客户端的字符。
+function on_server_headers(data) {
+    console.log(data);
+}
+wss.on("headers", on_server_headers);
