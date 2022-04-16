@@ -24,6 +24,11 @@ wss.on('connection', function (ws) {
         });
     });
 });
+function on_server_headers(data) {
+	// console.log(data);
+}
+wss.on("headers", on_server_headers);
+
 /*
 function websocket_add_listener(client_sock) {
     // close事件
