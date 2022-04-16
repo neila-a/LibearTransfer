@@ -34,3 +34,4 @@ server.on(
         console.error(`[SERVER ERROR]: ${err}`);
     }
 );
+console.log("[SERVER OPENED]");
