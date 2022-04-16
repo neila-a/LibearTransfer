@@ -8,14 +8,15 @@ const server = express().use(function (req, res) {
 });
 const wss = new Server({ server });
 wss.on('connection', function (ws) {
-    console.log('Client connected');
+    console.log('[CLIENT] Connected');
     ws.on('close', function () {
-        return console.log('Client disconnected');
+        return console.log('[CLIENT] Disconnected');
     });
     ws.on('message', function (message) {
+        console.log("[CLIENT] Sended message")
         ws.send(message, function (err) {
             if (err) {
-                console.log(`[SERVER] error: ${err}`);
+                console.log(`[SERVER] Error: ${err}`);
             }
         });
     });
