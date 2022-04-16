@@ -1,12 +1,12 @@
 {
-  "name": "libeartransfer-backstage",
+  "name": "libeartransfer",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "node index.js",
     "start": "node index.js",
-    "log": "heroku logs -t -a=libeartransfer-backstage",
+    "log": "heroku logs -t -a=libeartransfer",
     "upload": "git commit -am \"A commit.\" && git push heroku main"
   },
   "author": "neila",

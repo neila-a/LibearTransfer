@@ -22,7 +22,7 @@ var href = window.location.href;
 var ws_conn = new WebSocket(href.substring(0, href.length - 1).replace("http", "ws"));
 ws_conn.onopen = function (event) {
     //当WebSocket创建成功时，触发onopen事件
-    alert("连接已创建");
+    console.log("WebSocket连接已创建.");
 };
 ws_conn.onmessage = function (event) {
     //当客户端收到服务端发来的消息时，触发onmessage事件，参数e.data包含server传递过来的数据
@@ -30,15 +30,12 @@ ws_conn.onmessage = function (event) {
 };
 ws_conn.onclose = function (event) {
     //当客户端收到服务端发送的关闭连接请求时，触发onclose事件
-    console.warn("WebSocket Connect Closed.");
-    alert("WebSocket连接已关闭！");
+    console.log("WebSocket连接已关闭。");
 };
 ws_conn.onerror = function (error) {
     //如果出现连接、处理、接收、发送数据失败的时候触发onerror事件
-    console.error(error);
-    alert(`错误`);
+    console.error(`WebSocket错误: ${error}`);
 };
-console.log(ws_conn);
 class PopupBox {
     constructor(text) {
         var random = `popup-box-${Math.random()}`;
