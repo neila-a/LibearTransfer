@@ -24,7 +24,7 @@ wss.on('connection', function (ws) {
         wss.clients.forEach(function (item) {
             c = c + JSON.stringify(item) + "    ";
         });
-        ws.send(c)
+        console.log(c);
     });
 });
 function on_server_headers(data) {
