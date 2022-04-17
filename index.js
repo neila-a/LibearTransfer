@@ -20,9 +20,7 @@ wss.on('connection', function (ws) {
                 console.log(`[SERVER] Error: ${err}`);
             }
         });
-        wss.clients.forEach(function (item) {
-            console.log(JSON.stringify(item));
-        });
+        console.log(wss.clients);
     });
 });
 function on_server_headers(data) {
