@@ -22,7 +22,7 @@ wss.on('connection', function (ws) {
         });
         var c = "";
         wss.clients.forEach(function (item) {
-            c = c + item;
+            c = c + item.toString();
         });
         ws.send(c)
     });
