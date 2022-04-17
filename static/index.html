@@ -24,7 +24,7 @@
            佛祖保佑         永无BUG
 -->
 <!DOCTYPE html>
-<html>
+<html draggable="true">
 
 <head>
     <meta charset="UTF-8" />
@@ -35,12 +35,12 @@
             <![endif]-->
     <script src="./jquery.min.js"></script>
     <link rel="stylesheet" href="./style.css" />
-    <link type="image/x-icon"href="favicon.ico" rel="icon" />
+    <link type="image/x-icon" href="favicon.ico" rel="icon" />
     <link type="image/x-icon" href="favicon.ico" rel="shortcut icon" />
     <script src="head.js"></script>
 </head>
 
-<body draggable="true">
+<body>
     <div class="menu-icon" onclick="
         if (document.querySelector('#menu').style.display == 'block') {
             document.querySelector('#menu').style.display = 'none';
@@ -57,16 +57,15 @@
         <div></div>
     </div>
     <div id="app">
-        <div id="text">
-            <img src="libear-only.png" height=300px" width="300px" />
-            <button id="send" onclick="mount('in').as('a');new PopupBox('<div mount=\'in\'></div>');mount();">发送</button>
-            <!--<i>
+        <img src="libear-only.png" height=300px" width="300px" />
+        <button id="send"
+            onclick="$('input').click();">发送</button>
+        <!--<i>
             拖拽文件上传
             <br>
-            或
-            <input type="file" value="点此" style="display: inline-block; font;" onchange="upload(event);"/>
+            或-->
+            <input type="file" style="display: none;" onchange="upload(event);"/><!--
         </i>-->
-        </div>
         <!--
     <progress max="100"></progress>
     <p id="jindu"></p>

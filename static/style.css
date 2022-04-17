@@ -3,11 +3,8 @@
     border-color: #3399ff;
     border-radius: 100px;
 }
-#text {
-    color: #3399ff;
-    text-align: center;
-    margin: 10% 0;
-    font-size: 50px;
+:focus-visible {
+    outline: #ffffff auto 0px;
 }
 i {
     font-style: normal;
@@ -41,7 +38,7 @@ p#title {
     left: 5%;
 }
 #send {
-    margin: 0 45%;
+    margin: 0 40%;
     background-color: #3399ff;
     border: none;
     box-shadow: 0 5px 20px rgb(65 145 245 / 30%);
@@ -53,7 +50,13 @@ p#title {
     height: 49px;
     margin-bottom: 20px;
     transition: background-color .25s,box-shadow .25s,color .25s,opacity .25s;
-    width: 10%;
+    width: 20%;
+}
+#send::after {
+    top: 5px;
+    content: "也可以拖动文件到页面上来发送！";
+    position: absolute;
+    z-index: 0;
 }
 .popup {
     background-color: #ffffff;
@@ -155,5 +158,9 @@ p#title {
     right: 10px;
 }
 #app {
-    z-index: 0;
+    z-index: 1;
+    color: #3399ff;
+    text-align: center;
+    margin: 10% 0 30% 0;
+    font-size: 50px;
 }

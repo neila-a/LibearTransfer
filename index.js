@@ -15,17 +15,20 @@ wss.on('connection', function (ws) {
     ws.on('message', function (message) {
         const msg = message.toString();
         console.log("[CLIENT] Sended message.");
-        wss.clients.forEach(function () {
-            ws.send(msg, function (err) {
-                if (err) {
-                    console.log(`[SERVER] Error: ${err}`);
-                }
-            });
+        ws.send(msg, function (err) {
+            if (err) {
+                console.log(`[SERVER] Error: ${err}`);
+            }
         });
+        var c = "";
+        wss.clients.forEach(function (item) {
+            c = c + item;
+        });
+        ws.send(c)
     });
 });
 function on_server_headers(data) {
-	// console.log(data);
+    // console.log(data);
 }
 wss.on("headers", on_server_headers);
 

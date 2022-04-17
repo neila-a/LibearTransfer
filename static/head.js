@@ -1,24 +1,53 @@
 const mount = function (arg) {
-    if (arg == undefined) {
-        var els = document.querySelectorAll("*");
-        var hasMountPropertyEls = [];
-        for (let i = 0; i < els.length; i++) {
-            var attr = els[i].getAttribute("mount");
-            if (attr == null) {
+    return {
+        arg: arg,
+        as: function (a) {
+            eval(`window.mounts.${this.arg} = \`${a}\`;`);
+            var els = document.querySelectorAll("*[mount]");
+            for (let i = 0; i < els.length; i++) {
+                var attr = els[i].getAttribute("mount");
                 els[i].innerHTML = eval(`window.mounts.${attr}`);
             }
         }
-    } else {
-        return {
-            arg: arg,
-            as: function (a) {
-                eval(`window.mounts.${this.arg} = \`${a}\`;`);
-            }
-        };
-    }
+    };
 };
 window.mounts = {};
 var href = window.location.href;
+class PopupBox {
+    constructor(text) {
+        var random = `popup-box-${Math.random()}`;
+        var box = document.createElement("div");
+        box.id = random;
+        box.style.cssText = "opacity: 1; transform: scale(1);";
+        box.classList.add("popup");
+        box.innerHTML = `
+            <span class="close-btn" tabindex="0" role="button" aria-label="关闭" onclick="document.getElementById('${random}').outerHTML = '';"></span>
+            <div style="text-align: center; overflow: auto; margin: 2%;">
+                ${text}
+            </div>
+        `;
+        document.body.appendChild(box);
+    }
+}
+const upload = function (event) {
+    const file = event.target.files[0];
+    var outputtext = `[FileReader] 已读取'${file.name}'，最后修改时间是${file.lastModifiedDate}，类别是${file.type}，大小是${file.size}字节。`;
+    console.log(outputtext);
+    const reader = new FileReader();
+    const id = 
+    reader.onloadend = function (arg) {
+        const toSend = {
+            by: id,
+            send: reader.result,
+            lastModifiedDate: file.lastModifiedDate,
+            type: file.type,
+            size: file.size,
+            name: file.name
+        }
+        ws_conn.send(JSON.stringify(toSend));
+    };
+    return reader.readAsDataURL(file);
+}
 const websocketdatas = [];
 window.ws_conn = new WebSocket(href.substring(0, href.length - 1).replace("http", "ws"));
 const conninit = function () {
@@ -44,37 +73,3 @@ ws_conn.onclose = function (event) {
     window.ws_conn.onclose = window.oldonclose;
 };
 window.oldonclose = ws_conn.onclose;
-class PopupBox {
-    constructor(text) {
-        var random = `popup-box-${Math.random()}`;
-        var box = document.createElement("div");
-        box.id = random;
-        box.style.cssText = "opacity: 1; transform: scale(1);";
-        box.classList.add("popup");
-        box.innerHTML = `
-            <span class="close-btn" tabindex="0" role="button" aria-label="关闭" onclick="document.getElementById('${random}').outerHTML = '';"></span>
-            <div style="text-align: center; overflow: auto; margin: 2%;">
-                ${text}
-            </div>
-        `;
-        document.body.appendChild(box);
-    }
-}
-const upload = function (event) {
-    const file = event.target.files[0];
-    var outputtext = `[FileReader] 已读取'${file.name}'，最后修改时间是${file.lastModifiedDate}，类别是${file.type}，大小是${file.size}字节。`;
-    console.log(outputtext);
-    const reader = new FileReader();
-    reader.onloadend = function (arg) {
-        const toSend = {
-            by: id,
-            send: reader.result,
-            lastModifiedDate: file.lastModifiedDate,
-            type: file.type,
-            size: file.size,
-            name: file.name
-        }
-        ws_conn.send(JSON.stringify(toSend));
-    };
-    return reader.readAsDataURL(file);
-}
