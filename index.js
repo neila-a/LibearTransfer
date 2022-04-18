@@ -5,7 +5,7 @@ const peer = require('peer');
 var server = peer.PeerServer({
     port: process.env.PORT || 80,
     ssl: {
-        cert: fs.readFileSync('key.crt')
+        cert: fs.readFileSync('./key.crt')
     },
     path: "/peer/"
 });
