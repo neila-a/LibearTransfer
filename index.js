@@ -1,11 +1,12 @@
 const express = require("express");
 const fs = require('fs');
 const { Server } = require('ws');
+const { cat } = require("shelljs");
 const peer = require('peer');
 var server = peer.PeerServer({
     port: process.env.PORT || 80,
     ssl: {
-        cert: fs.readFileSync('./key.crt')
+        cert: cat('./key.crt')
     },
     path: "/peer/"
 });
