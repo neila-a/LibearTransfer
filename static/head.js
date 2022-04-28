@@ -238,7 +238,7 @@ const showtheme = function () {
     	<input type="color" value="${localStorage.theme_color}" onchange="paletteonchange(event);"/>
     `);
     initmount();
-};
+};/*
 var href = location.href;
 var websocketdatas = [];
 window.ws_conn = new WebSocket(href.substring(0, href.length - 1).replace("http", "ws"));
@@ -264,4 +264,4 @@ ws_conn.onclose = function (event) {
     conninit();
     window.ws_conn.onclose = window.oldonclose;
 };
-window.oldonclose = ws_conn.onclose;
+window.oldonclose = ws_conn.onclose;*/
