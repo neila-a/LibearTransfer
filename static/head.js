@@ -222,7 +222,7 @@ const noti = function (t, b) {
                 dir: "auto",
                 lang: "zh-CN",
                 tag: "msg",
-                icon: "./libear-only.png",
+                icon: "https://s1.ax1x.com/2022/04/28/LjF3MF.png",
                 body: b
             });
         }
