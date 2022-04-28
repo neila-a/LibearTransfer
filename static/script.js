@@ -21,13 +21,13 @@ mount("style").as(`
     }
 `);
 document.body.style.setProperty("--theme-color", localStorage.theme_color);
-var value = document.querySelector("progress").value;
+/*var value = document.querySelector("progress").value;
 if (value < 10) value = `0${value.toString()}`;
 if (value == 100) {
     value = 0;
     alert(`文件已发送成功。`);
 }
-/*$("p#jindu").inner(`${value}%`);*//*
+$("p#jindu").inner(`${value}%`);
 var snode = document.createElement("style");
 var height = $(".col-md-1").get(0).offsetHeight + $(".col-md-2").get(0).offsetHeight + 30;
 console.log(height);
