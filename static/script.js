@@ -36,5 +36,5 @@ snode.innerHTML = `
         top: ${height}px;
     }
 `;
-document.head.appendChild(snode);*/
-document.querySelector("#text").style.height = document.body.clientHeight/*Math.max(document.body.scrollHeight,document.documentElement.scrollHeight)*/;
+document.head.appendChild(snode);
+document.querySelector("#text").style.height = document.body.clientHeight/*Math.max(document.body.scrollHeight,document.documentElement.scrollHeight)*/
