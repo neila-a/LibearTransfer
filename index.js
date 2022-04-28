@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require('fs');
 const { Server } = require('ws');
 const peer = require('peer');
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 80;/*
 var server = peer.PeerServer({
     port: 81,
     ssl: {
@@ -10,7 +10,6 @@ var server = peer.PeerServer({
     },
     path: "/"
 });
-/*
 const wss = new Server({ server });*/
 const webserver = express().use(function (req, res) {
     return res.sendFile(`/static${req.url.replace(/\?.*/, "")}`, { root: __dirname });
