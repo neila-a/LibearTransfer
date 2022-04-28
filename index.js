@@ -11,7 +11,7 @@ var server = peer.PeerServer({
 });
 /*
 const wss = new Server({ server });*/
-const server = express().use(function (req, res) {
+const webserver = express().use(function (req, res) {
     return res.sendFile(`/static${req.url.replace(/\?.*/, "")}`, { root: __dirname });
 }).listen(PORT, function () {
     return console.log(`Listening on port ${PORT}.`);

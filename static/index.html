@@ -24,20 +24,21 @@
            佛祖保佑         永无BUG
 -->
 <!DOCTYPE html>
-<html draggable="true">
+<html>
 
 <head>
     <meta charset="UTF-8" />
     <title>LibearTransfer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lt IE 9]>
-                <script src="./html5shiv.min.js"></script>
-            <![endif]-->
-    <script src="./jquery.min.js"></script>
+        <script src="./html5shiv.min.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="./style.css" />
-    <link type="image/x-icon" href="favicon.ico" rel="icon" />
-    <link type="image/x-icon" href="favicon.ico" rel="shortcut icon" />
+    <link href="./libear-only.png" rel="icon" />
+    <link href="./libear-only.png" rel="shortcut icon" />
     <script src="head.js"></script>
+    <style mount="style" type="text/css"></style>
 </head>
 
 <body>
@@ -51,28 +52,61 @@
             this.innerHTML = '';
             this.className = 'close-btn-formenu';
         }
-    " tabindex="0" role="button" aria-label="菜单">
+    " tabindex="0" role="button" aria-label="菜单" id="menu-icon">
         <div></div>
         <div></div>
         <div></div>
     </div>
-    <div id="app">
-        <img src="libear-only.png" height=300px" width="300px" />
-        <button id="send"
-            onclick="$('input').click();">发送</button>
-        <!--<i>
-            拖拽文件上传
-            <br>
-            或-->
-            <input type="file" style="display: none;" onchange="upload(event);"/><!--
-        </i>-->
+    <div id="app" onclick="
+        document.querySelector('#menu').style.display = 'none';
+        var that = document.querySelector('.close-btn-formenu');
+        that.className = 'menu-icon';
+        that.innerHTML = '<div></div><div></div><div></div>';
+    ">
+        <img src="./libear-only.png" />
+        <input id="forupload" type="file" style="display: none;" onchange="upload(event);" />
         <!--
     <progress max="100"></progress>
     <p id="jindu"></p>
     <p id="title">传输进度</p>-->
     </div>
-    <div id="menu" tabindex="0" role="menu" aria-label="弹窗" style="display: none; text-align: center;">
-        现在看见了吧！
+    <div id="menu" tabindex="0" role="menu" aria-label="弹窗" style="display: none; text-align: center;" onclick="
+        this.style.display = 'none';
+        document.querySelector('#menu-icon').className = 'menu-icon';
+        document.querySelector('#menu-icon').innerHTML = '<div></div><div></div><div></div>';
+    ">
+        <div class="menu-item" tabindex="3" role="button" onclick="showconn();">
+            <i class="menu-item-icon fa">&#xf0c1;</i>
+            <div mount="connect"></div>
+        </div>
+        <div class="menu-line"></div>
+        <div class="menu-item" tabindex="4" role="button" onclick="showfile();">
+            <i class="menu-item-icon fa">&#xf016;</i>
+            <div mount="transfile"></div>
+        </div>
+        <div class="menu-item" tabindex="5" role="button" onclick="showtext();">
+            <i class="menu-item-icon fa">&#xf0f6;</i>
+            <div mount="transtext"></div>
+        </div>
+        <div class="menu-line"></div>
+        <div class="menu-item" tabindex="6" role="button" onclick="showabout();">
+            <i class="menu-item-icon fa" style="font-size: 20px;">&#xf05a;</i>
+            <div mount="about"></div>
+        </div>
+        <div class="menu-item" tabindex="7" role="button" onclick="showhelp();">
+            <i class="menu-item-icon fa" style="font-size: 20px;">&#xf29c;</i>
+            <div mount="help"></div>
+        </div>
+        <div class="menu-line"></div>
+        <div class="menu-item" tabindex="8" role="button" onclick="showlanguage();">
+            <i class="menu-item-icon fa" style="font-size: 20px;">&#xf1ab;</i>
+            <div mount="language"></div>
+        </div>
+        <div class="menu-item" tabindex="9" role="button" onclick="showtheme();">
+            <i class="menu-item-icon fa" style="font-size: 20px;">&#xf1fc;</i>
+            <div mount="theme"></div>
+        </div>
+        <input id="foruploadlang" type="file" style="display: none;" onchange="uploadlang(event);" />
     </div>
     <script src="script.js"></script>
 </body>

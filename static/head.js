@@ -3,30 +3,29 @@ const mount = function (arg) {
         arg: arg,
         as: function (a) {
             eval(`window.mounts.${this.arg} = \`${a}\`;`);
-            var els = document.querySelectorAll("*[mount]");
+            var els = document.querySelectorAll(`*[mount="${this.arg}"]`);
             for (let i = 0; i < els.length; i++) {
-                var attr = els[i].getAttribute("mount");
-                els[i].innerHTML = eval(`window.mounts.${attr}`);
+                els[i].innerHTML = eval(`window.mounts.${els[i].getAttribute("mount")}`);
             }
         }
     };
 };
 window.mounts = {};
-var href = window.location.href;
-class PopupBox {
+class Popup {
     constructor(text) {
-        var random = `popup-box-${Math.random()}`;
+        var random = `popup-box-${Math.random().toString().replace(/\./g, "")}`;
         var box = document.createElement("div");
         box.id = random;
         box.style.cssText = "opacity: 1; transform: scale(1);";
         box.classList.add("popup");
         box.innerHTML = `
-            <span class="close-btn" tabindex="0" role="button" aria-label="关闭" onclick="document.getElementById('${random}').outerHTML = '';"></span>
-            <div style="text-align: center; overflow: auto; margin: 2%;">
+            <span class="close-btn" tabindex="0" role="button" aria-label="关闭" onclick="this.parentElement.outerHTML = '';"></span>
+            <div style="text-align: center; overflow: auto; margin: 2%;height: 100%;">
                 ${text}
             </div>
         `;
         document.body.appendChild(box);
+        this.htmlobject = document.getElementById(random);
     }
 }
 const upload = function (event) {
@@ -34,21 +33,214 @@ const upload = function (event) {
     var outputtext = `[FileReader] 已读取'${file.name}'，最后修改时间是${file.lastModifiedDate}，类别是${file.type}，大小是${file.size}字节。`;
     console.log(outputtext);
     const reader = new FileReader();
-    const id = 
-    reader.onloadend = function (arg) {
-        const toSend = {
-            by: id,
-            send: reader.result,
-            lastModifiedDate: file.lastModifiedDate,
-            type: file.type,
-            size: file.size,
-            name: file.name
-        }
-        ws_conn.send(JSON.stringify(toSend));
-    };
+    const id =
+        reader.onloadend = function (arg) {
+            const toSend = {
+                by: id,
+                send: reader.result,
+                lastModifiedDate: file.lastModifiedDate,
+                type: file.type,
+                size: file.size,
+                name: file.name
+            }
+            ws_conn.send(JSON.stringify(toSend));
+        };
     return reader.readAsDataURL(file);
 }
-const websocketdatas = [];
+const uploadlang = function (event) {
+    const file = event.target.files[0];
+    var outputtext = `[FileReader] 已读取'${file.name}'，最后修改时间是${file.lastModifiedDate}，类别是${file.type}，大小是${file.size}字节。`;
+    console.log(outputtext);
+    const reader = new FileReader();
+    reader.onloadend = function (arg) {
+        const result = JSON.parse(reader.result);
+        localStorage.setItem("langlist", `
+            ${localStorage.langlist.substring(0, localStorage.langlist.length - 1)}
+            ,[
+                "${result.main}"
+            ]]
+        `);
+        location.reload();
+    };
+    return reader.readAsText(file);
+};
+const refreshlang = function () {
+
+};
+if (localStorage.langlist == "undefined" || localStorage.langlist == undefined) {
+    localStorage.setItem("langlist", `
+        [
+            [
+                "zh-cn",
+                "简体中文",
+                "发送",
+                "连接",
+                "传输文件",
+                "传输文本",
+                "帮助",
+                "语言",
+                "选择语言",
+                "或",
+                "上传新的语言",
+                "清空所有自添加语言",
+                "关于",
+                "主题",
+                "调色板"
+            ],
+            [
+                "en",
+                "English",
+                "Send",
+                "Connect",
+                "Transfer file",
+                "Transfer text",
+                "Help",
+                "Language",
+                "Select language",
+                "or",
+                "Upload new language",
+                "Clear all self added languages",
+                "About",
+                "Theme",
+                "Palette"
+            ],
+            [
+                "zh-tr",
+                "繁體中文",
+                "發送",
+                "連接",
+                "傳輸文件",
+                "傳輸文字",
+                "幫助",
+                "語言",
+                "選擇語言",
+                "或",
+                "上傳新的語言",
+                "清空所有自添加語言",
+                "關於",
+                "主題",
+                "調色板"
+            ]
+        ]`.replace(/\n/g, "").replace(/    /g, "")
+    );
+}
+if (localStorage.language == undefined || localStorage.language == "undefined") {
+    var lang;
+    eval(localStorage.langlist).forEach(
+        function (item) {
+            if (item[0] == "zh-cn") lang = `["${item.toString().replace(/,/g, "\",\"")}"]`;
+        }
+    );
+    localStorage.setItem("language", lang);
+}
+const showlanguage = function () {
+    const langlist = eval(localStorage.langlist);
+    var selectinner = "";
+    langlist.forEach(
+        function (item) {
+            var toString = `[\\'${item.toString().replace(/,/g, "\\',\\'").replace(/"/g, "\\'")}\\']`;
+            selectinner = selectinner + `
+                <div class="option" onclick="
+                    localStorage.setItem('language', '${toString}');
+                    location.reload();
+                ">
+                    <div class="radio">
+                        <input type="radio" value="${item[0]}" name="language" id="${item[0]}" checked="true" />
+                        <label for="${item[0]}">
+                            ${item[1]}
+                        </label>
+                    </div>
+                </div>
+            `;
+        }
+    );
+    new Popup(`
+        <h2 mount="selectlang"></h2>
+        <from action="set" method="get">
+            <div id="select">
+                ${selectinner}
+            </div>
+            <br>
+            <br>
+            <p mount="or"></p>
+            <button type="submit" onclick="document.querySelector('#foruploadlang').click();" mount="uploadnewlang"></button>
+            <br>
+            <br>
+            <button type="submit" onclick="localStorage.setItem('langlist',undefined);location.reload();" mount="cleanalllang"></button>
+        </from>
+    `);
+    initmount();
+    mount("style").as(`
+        img {
+            margin-top: ${screen.availHeight / 2 - 200}px;
+        }
+    `);
+};
+const showfile = function () {
+    var popupbox = new Popup(`
+        <div id="title">
+            <h2 mount="transfile"></h2>
+        </div>
+        <div id="up">
+            <div id="space"></div>
+            <button id="send" onclick="document.querySelector('#forupload').click();" mount="send"></button>
+        </div>
+        <div id="dragaera" draggable="true"></div>
+    `);
+    initmount();
+    document.getElementById("space").style.height = `${390 / 2 - document.getElementById("title").clientHeight}px`;
+};
+const showtext = function () {
+    new Popup(`
+        <h2 mount="transtext"></h2>
+    `);
+    initmount();
+};
+const showhelp = function () {
+    new Popup(`
+        <h2 mount="help"></h2>
+    `);
+    initmount();
+};
+const showconn = function () {
+    new Popup(`
+        <h2 mount="connect"></h2>
+    `);
+    initmount();
+};
+const showabout = function () {
+    new Popup(`
+        <h2 mount="about"></h2>
+    `);
+    initmount();
+};
+Notification.requestPermission().then(function (permission) {
+    // 如果用户接受权限，我们就可以发起一条消息
+    if (permission === "granted") {
+        var notification = new Notification("Hello", {
+            dir: "auto",
+            lang: "zh-CN",
+            tag: "msg",
+            icon: "./libear-only.png"
+        });
+    }
+});
+if (localStorage.theme_color == undefined) localStorage.setItem("theme_color", "#1e9fff");
+const showtheme = function () {
+    window.paletteonchange = function (event) {
+        const { value } = document.querySelector("input[type=\"color\"");
+        document.body.style.setProperty("--theme-color", value);
+        localStorage.setItem("theme_color", value);
+    };
+    new Popup(`
+    	<h2 mount="theme"></h2>
+    	<h3 mount="palette"></h3>
+    	<input type="color" value="${localStorage.theme_color}" onchange="paletteonchange(event);"/>
+    `);
+    initmount();
+};
+var href = location.href;
+var websocketdatas = [];
 window.ws_conn = new WebSocket(href.substring(0, href.length - 1).replace("http", "ws"));
 const conninit = function () {
     window.ws_conn.onopen = function (event) {
