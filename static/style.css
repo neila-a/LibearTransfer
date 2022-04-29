@@ -63,17 +63,27 @@ p#title {
     z-index: 0;
     color: #000000;
 }
+@media only screen and (max-device-width: 482.328px) {
+    .popup {
+        width: 90%;
+        left: 5%;
+    }
+}
+@media only screen and (min-device-width: 482.328px) {
+    .popup {
+        width: 30.1455%;
+        left: 34.92725%;
+    }
+}
 .popup {
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0 5px 30px #999999;
     box-sizing: border-box;
     height: 390px;
-    left: 24.012474012474012%;
     opacity: 0;
     position: absolute;
     top: calc(50% - 200px);
-    width: 51.975051975051976%;
     z-index: 2;
 }
 .close-btn, .close-btn-formenu {
