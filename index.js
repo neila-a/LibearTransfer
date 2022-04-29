@@ -4,8 +4,8 @@ const path = require("path");
 const http = require("http");
 const { ExpressPeerServer } = require('peer');
 const PORT = process.env.PORT || 80;
-const server = http.createServer();
-var server = ExpressPeerServer(server, {
+const httpserver = http.createServer();
+var server = ExpressPeerServer(httpserver, {
     path: "./static",
     port: PORT
 });
