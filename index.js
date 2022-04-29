@@ -13,6 +13,11 @@ const webserver = express().use(
     server
 ).use(
     express.static(path.join(__dirname))
+).get(
+    "/",
+    function (request, response) {
+        response.sendFile(__dirname + "/index.html");
+    }
 );
 server.listen(PORT);/*
 const { Server } = require('ws');
