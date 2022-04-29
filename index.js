@@ -12,7 +12,8 @@ const server = ExpressPeerServer(httpserver, {
     path: "/peer"
 });
 expressServer.use(server);
-expressServer.use(express.static(path.join(`${__dirname}/`)));
+console.log(__dirname);
+expressServer.use(express.static(path.join(`${__dirname}/static/`)));
 expressServer.get("/", function (request, response) {
         response.sendFile(`${__dirname}/static/index.html`);
     });
