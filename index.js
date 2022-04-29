@@ -9,16 +9,7 @@ var server = ExpressPeerServer(httpserver, {
     path: "./static/",
     port: PORT
 });
-const webserver = express().use(
-    server
-).use(
-    express.static(path.join("./static/"))
-).get(
-    "/",
-    function (request, response) {
-        response.sendFile("./static/index.html");
-    }
-);
+const webserver = express().use(server);
 server.listen(PORT);/*
 const { Server } = require('ws');
 const wss = new Server({ server });
