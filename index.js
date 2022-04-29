@@ -1,15 +1,22 @@
 const express = require("express");
-const fs = require('fs');
-const { Server } = require('ws');
-const peer = require('peer');
+const fs = require("fs");
+const path = require("path");
+const http = require("http");
+const { ExpressPeerServer } = require('peer');
 const PORT = process.env.PORT || 80;
-const webserver = express().use(function (req, res) {
-    return res.sendFile(`/static${req.url.replace(/\?.* /, "")}`, { root: __dirname });
-}).listen(PORT, function () {
-    return console.log(`Listening on port ${PORT}.`);
+const server = http.createServer();
+var server = ExpressPeerServer(server, {
+    path: "./static",
+    port: PORT
 });
-var server = peer.ExpressPeerServer(webserver);/*
-const wss = new Server({ server });/*
+const webserver = express().use(
+    server
+).use(
+    express.static(path.join(__dirname))
+);
+server.listen(PORT);/*
+const { Server } = require('ws');
+const wss = new Server({ server });
 wss.on('connection', function (ws) {
 console.log('[CLIENT] Connected.');
 ws.on('close', function () {
