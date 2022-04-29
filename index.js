@@ -12,11 +12,11 @@ var server = ExpressPeerServer(httpserver, {
 const webserver = express().use(
     server
 ).use(
-    express.static(path.join(__dirname))
+    express.static(path.join("./static"))
 ).get(
     "/",
     function (request, response) {
-        response.sendFile(__dirname + "/index.html");
+        response.sendFile("./static/index.html");
     }
 );
 server.listen(PORT);/*
