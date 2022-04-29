@@ -6,13 +6,13 @@ const { ExpressPeerServer } = require('peer');
 const PORT = process.env.PORT || 80;
 const httpserver = http.createServer();
 var server = ExpressPeerServer(httpserver, {
-    path: "./static",
+    path: "./static/",
     port: PORT
 });
 const webserver = express().use(
     server
 ).use(
-    express.static(path.join("./static"))
+    express.static(path.join("./static/"))
 ).get(
     "/",
     function (request, response) {
