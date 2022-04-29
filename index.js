@@ -6,8 +6,7 @@ const { ExpressPeerServer } = require('peer');
 const PORT = process.env.PORT || 80;
 const httpserver = http.createServer();
 var server = ExpressPeerServer(httpserver, {
-    path: "./static/",
-    port: PORT
+    path: "./static/"
 });
 const webserver = express().use(server);
 server.listen(PORT);/*
