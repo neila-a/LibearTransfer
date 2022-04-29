@@ -228,6 +228,7 @@ const noti = function (t, b) {
         }
     });
 };
+document.getElementsByTagName("html")[0].setAttribute("lang", eval(localStorage.language)[0]);
 if (localStorage.theme_color == undefined) localStorage.setItem("theme_color", "#1e9fff");
 const showtheme = function () {
     window.paletteonchange = function (event) {
