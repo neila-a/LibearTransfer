@@ -10,4 +10,3 @@ const mount = function (arg) {
         }
     };
 };
-window.mounts = {};
