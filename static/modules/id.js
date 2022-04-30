@@ -9,5 +9,5 @@ fpPromise.then(function (fp) {
     //dev
     alert(id)
 }).catch(function (error) {
-        return console.error(error);
+    return console.error(error);
 });
