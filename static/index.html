@@ -48,7 +48,15 @@
     <script src="./modules/noti.js"></script>
     <script src="./modules/color.js"></script>
     <script>
-        const fingerprint = import("./lib/fingerprint.js");
+        const fpPromise = import('https://openfpcdn.io/fingerprintjs/v3')
+            .then(FingerprintJS => FingerprintJS.load());
+        fpPromise
+            .then(fp => fp.get())
+            .then(result => {
+                const nid = result.visitorId
+                window.id = nid.substring(nid.length - 9);
+            })
+            .catch(error => console.error(error))
     </script>
 </head>
 
