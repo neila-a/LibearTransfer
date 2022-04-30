@@ -29,6 +29,7 @@ const showlanguage = function () {
             <br>
             <br>
             <p mount="or"></p>
+            <input id="forupload" type="file" style="display: none;" onchange="upload(event);" />
             <button type="submit" onclick="document.querySelector('#foruploadlang').click();" mount="uploadnewlang"></button>
             <br>
             <br>
