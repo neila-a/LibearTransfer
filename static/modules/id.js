@@ -6,8 +6,8 @@ fpPromise.then(function (fp) {
 }).then(function (result) {
     const nid = result.visitorId;
     window.id = nid.substring(nid.length - 9);
+    //dev
+    alert(id)
 }).catch(function (error) {
         return console.error(error);
 });
-//dev
-alert(id);
