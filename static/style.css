@@ -250,9 +250,6 @@ h2, h3 {
 .radio input[type=radio] {
     opacity: 1;
 }
-.radio > label {
-    font-family: system-ui;
-}
 .radio input[type=radio] + .radio-label:before {
     content: "";
     background: #f4f4f4;
@@ -284,4 +281,7 @@ input[type="color"] {
     border-width: 0;
     width: 50%;
     height: 50%;
+}
+*:not(.fa) {
+    font-family: system-ui;
 }

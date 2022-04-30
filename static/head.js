@@ -142,7 +142,7 @@ const showlanguage = function () {
             selectinner = selectinner + `
                 <div class="option" onclick="
                     localStorage.setItem('language', '${toString}');
-                    location.reload();
+                    initmount();
                 ">
                     <div class="radio">
                         <input type="radio" value="${item[0]}" name="language" id="${item[0]}" checked="true" />
