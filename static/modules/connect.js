@@ -1,5 +1,6 @@
-const peerconn = new Peer(id, {
-    host: location.hostname,
-    debug: 1,
-    path: '/peer'
+peer.on('open', function () {
+});
+peer.on('connection', function (conn) {
+});
+peer.on('call', function (call) {
 });
