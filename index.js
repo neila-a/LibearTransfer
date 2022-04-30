@@ -1,24 +1,25 @@
 const express = require("express");
-const fs = require("fs");
-const path = require("path");
-const http = require("http");
+const http = require('http');
+const path = require('path');
+const app = express();
+const server = http.createServer(app);
 const { ExpressPeerServer } = require('peer');
-const PORT = process.env.PORT || 80;
-const httpserver = http.createServer();
-const expressServer = express();
-const server = ExpressPeerServer(httpserver, {
-    proxied: true,
-    debug: true,
-    path: "/peer"
-});
-expressServer.use(server);
-expressServer.use(express.static(path.join(`${__dirname}/static/`)));
-expressServer.get("/",
-    function (request, response) {
-        response.sendFile(`${__dirname}/static/index.html`);
-    }
+const port = process.env.PORT || "80";
+app.use(
+    ExpressPeerServer(server, {
+        proxied: true,
+        debug: true,
+        path: '/peer',
+        ssl: {}
+    })
 );
-server.listen(PORT);/*
+app.use(express.static(path.join(`${__dirname}/static/`)));
+app.get("/", function (request, response) {
+    response.sendFile(`${__dirname}/static/index.html`);
+});
+server.listen(port, function () {
+    console.log(`Listening on: ${port}`);
+});/*
 const { Server } = require('ws');
 const wss = new Server({ server });
 wss.on('connection', function (ws) {
