@@ -20,7 +20,7 @@ progress {
     height: 40px;
     z-index: -1;
 }
-p:not(#text):not([mount="or"]) {
+p#jindu, p#title {
     left: 10px;
     bottom: 0px;
     right: 20px;
@@ -74,6 +74,7 @@ p#title {
     position: absolute;
     top: calc(50% - 200px);
     z-index: 2;
+    overflow: hidden;
 }
 .close-btn, .close-btn-formenu {
     padding: 30px 0 30px 0;
@@ -277,4 +278,23 @@ input[type="color"] {
 }
 *:not(.fa) {
     font-family: system-ui;
+}
+.peerjs {
+    color: #000;
+    height: 67.5px;
+    background-image: url(https://peerjs.com/logo.cd315309.png);
+    background-position: 100%;
+    background-repeat: no-repeat;
+    font-weight: 900;
+    line-height: 70px;
+}
+svg {
+    text-align: left;
+    overflow: auto;
+    height: 75px;
+}
+path[stroke] {
+    /* margin: 50px; */
+    /* margin-left: 30px; */
+    transform: scale(0.55);
 }

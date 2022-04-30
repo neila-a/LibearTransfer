@@ -14,4 +14,5 @@ const initmount = function () {
     mount("theme").as(langs[13]);
     mount("palette").as(langs[14]);
     mount("drag").as(langs[15]);
+    mount("thank").as(langs[16]);
 }

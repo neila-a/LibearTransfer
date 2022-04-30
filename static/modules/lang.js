@@ -17,7 +17,8 @@ if (localStorage.langlist == "undefined" || localStorage.langlist == undefined) 
                 "关于",
                 "主题",
                 "调色板",
-                "拖动文件<br>到此处<br>上传"
+                "拖动文件<br>到此处<br>上传",
+                "鸣谢"
             ],
             [
                 "en",
@@ -35,7 +36,8 @@ if (localStorage.langlist == "undefined" || localStorage.langlist == undefined) 
                 "About",
                 "Theme",
                 "Palette",
-                "Drag file<br>here<br>to upload"
+                "Drag file<br>here<br>to upload",
+                "Acknowledge"
             ],
             [
                 "zh-tr",
@@ -53,7 +55,8 @@ if (localStorage.langlist == "undefined" || localStorage.langlist == undefined) 
                 "關於",
                 "主題",
                 "調色板",
-                "拖動檔案<br>到此處<br>上傳"
+                "拖動檔案<br>到此處<br>上傳",
+                "鳴謝"
             ]
         ]`.replace(/\n/g, "").replace(/    /g, "")
     );

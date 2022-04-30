@@ -1,7 +1,7 @@
 window.mounts = {};
 initmount();
 mount("style").as(`
-    img {
+    img:not([fpjs]) {
         margin-top: ${screen.availHeight / 2 - 200}px;
     }
 `);
