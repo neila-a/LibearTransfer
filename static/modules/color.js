@@ -1,0 +1,1 @@
+if (localStorage.theme_color == undefined) localStorage.setItem("theme_color", "#1e9fff");
