@@ -16,7 +16,8 @@ if (localStorage.langlist == "undefined" || localStorage.langlist == undefined) 
                 "清空所有自添加语言",
                 "关于",
                 "主题",
-                "调色板"
+                "调色板",
+                "拖动文件<br>到此处<br>上传"
             ],
             [
                 "en",
@@ -33,7 +34,8 @@ if (localStorage.langlist == "undefined" || localStorage.langlist == undefined) 
                 "Clear all self added languages",
                 "About",
                 "Theme",
-                "Palette"
+                "Palette",
+                "Drag file<br>here<br>to upload"
             ],
             [
                 "zh-tr",
@@ -50,7 +52,8 @@ if (localStorage.langlist == "undefined" || localStorage.langlist == undefined) 
                 "清空所有自添加語言",
                 "關於",
                 "主題",
-                "調色板"
+                "調色板",
+                "拖動檔案<br>到此處<br>上傳"
             ]
         ]`.replace(/\n/g, "").replace(/    /g, "")
     );

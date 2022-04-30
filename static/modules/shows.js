@@ -8,6 +8,7 @@ const showlanguage = function () {
                 <div class="option" onclick="
                     localStorage.setItem('language', '${toString}');
                     initmount();
+                    document.getElementsByTagName('html')[0].setAttribute('lang', eval(localStorage.language)[0]);
                 ">
                     <div class="radio">
                         <input type="radio" value="${item[0]}" name="language" id="${item[0]}" checked="true" />
@@ -46,14 +47,13 @@ const showfile = function () {
         <div id="title">
             <h2 mount="transfile"></h2>
         </div>
-        <div id="up">
-            <div id="space"></div>
-            <button id="send" onclick="document.querySelector('#forupload').click();" mount="send"></button>
-        </div>
-        <div id="dragaera" draggable="true"></div>
+        <div id="dragaera" draggable="true" mount="drag"></div>
+        <br>
+        <p mount="or"></p>
+        <button id="send" onclick="document.querySelector('#forupload').click();" mount="send"></button>
     `);
     initmount();
-    document.getElementById("space").style.height = `${390 / 2 - document.getElementById("title").clientHeight}px`;
+    document.getElementById("dragaera").style.height = `${390 / 2 - document.getElementById("title").clientHeight}px`;
 };
 const showtext = function () {
     new Popup(`

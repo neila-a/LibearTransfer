@@ -52,27 +52,12 @@
 </head>
 
 <body>
-    <div class="menu-icon" onclick="
-        if (document.querySelector('#menu').style.display == 'block') {
-            document.querySelector('#menu').style.display = 'none';
-            this.className = 'menu-icon';
-            this.innerHTML = '<div></div><div></div><div></div>';
-        } else {
-            document.querySelector('#menu').style.display = 'block';
-            this.innerHTML = '';
-            this.className = 'close-btn-formenu';
-        }
-    " tabindex="0" role="button" aria-label="菜单" id="menu-icon">
+    <div class="menu-icon" tabindex="0" role="button" aria-label="菜单" id="menu-icon">
         <div></div>
         <div></div>
         <div></div>
     </div>
-    <div id="app" onclick="
-        document.querySelector('#menu').style.display = 'none';
-        var that = document.querySelector('.close-btn-formenu');
-        that.className = 'menu-icon';
-        that.innerHTML = '<div></div><div></div><div></div>';
-    ">
+    <div id="app">
         <img src="https://s1.ax1x.com/2022/04/28/LjF3MF.png" alt="Libear" />
         <input id="forupload" type="file" style="display: none;" onchange="upload(event);" />
         <!--
@@ -80,11 +65,7 @@
     <p id="jindu"></p>
     <p id="title">传输进度</p>-->
     </div>
-    <div id="menu" tabindex="0" role="menu" aria-label="弹窗" style="display: none; text-align: center;" onclick="
-        this.style.display = 'none';
-        document.querySelector('#menu-icon').className = 'menu-icon';
-        document.querySelector('#menu-icon').innerHTML = '<div></div><div></div><div></div>';
-    ">
+    <div id="menu" tabindex="0" role="menu" aria-label="弹窗" style="display: none;">
         <div class="menu-item" tabindex="3" role="button" onclick="showconn();">
             <i class="menu-item-icon fa">&#xf0c1;</i>
             <div mount="connect"></div>

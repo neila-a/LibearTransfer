@@ -52,17 +52,6 @@ p#title {
     transition: background-color .25s,box-shadow .25s,color .25s,opacity .25s;
     width: 30%;
 }
-#send:hover::after {
-    opacity: 1;
-    top: 200px;
-    font-size: 20px;
-    right: calc(50% - 150px);
-    text-align: center;
-    content: "也可以拖动文件到页面上来发送！";
-    position: absolute;
-    z-index: 0;
-    color: #000000;
-}
 @media only screen and (max-device-width: 482.328px) {
     .popup {
         width: 90%;
@@ -173,6 +162,7 @@ p#title {
     top: 50px;
     transition: all .25s;
     right: 10px;
+    text-align: center;
 }
 .menu-item {
     border-radius: 5px;
@@ -242,7 +232,9 @@ h2, h3 {
     font-weight: normal;
 }
 #dragaera {
-
+    text-align: center;
+    border: 1px solid var(--theme-color);
+    border-radius: 10px;
 }
 .radio {
     margin: 0.5rem;
