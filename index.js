@@ -12,10 +12,12 @@ const server = ExpressPeerServer(httpserver, {
     path: "/peer"
 });
 expressServer.use(server);
-expressServer.use(express.static(path.join(`./static/`)));
-expressServer.get("/", function (request, response) {
-        response.sendFile(`./static/index.html`);
-    });
+expressServer.use(express.static(path.join(`${__dirname}/static/`)));
+expressServer.get("/",
+    function (request, response) {
+        response.sendFile(`${__dirname}/static/index.html`);
+    }
+);
 server.listen(PORT);/*
 const { Server } = require('ws');
 const wss = new Server({ server });
