@@ -1,8 +1,8 @@
-const fpPromise = import('https://openfpcdn.io/fingerprintjs/v3').then(
-    FingerprintJS => FingerprintJS.load()
-);
+const fpPromise = import('https://openfpcdn.io/fingerprintjs/v3').then(function (FingerprintJS) {
+    return FingerprintJS.load();
+});
 fpPromise.then(function (fp) {
-        return fp.get();
+    return fp.get();
 }).then(function (result) {
     const nid = result.visitorId;
     window.id = nid.substring(nid.length - 9);
