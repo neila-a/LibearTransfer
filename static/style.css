@@ -298,3 +298,12 @@ path[stroke] {
     /* margin-left: 30px; */
     transform: scale(0.55);
 }
+.peerjs h3 {
+    display: inline-block;
+}
+a {
+    text-decoration: none;
+}
+#fa {
+    color: #000000;
+}
