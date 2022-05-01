@@ -307,3 +307,8 @@ a {
 #fa {
     color: #000000;
 }
+#copyid {
+    margin-left: 10%;
+    font-size: 30px;
+    cursor: pointer;
+}

@@ -72,9 +72,19 @@ const showconn = function () {
     new Popup(`
         <h2 mount="connect"></h2>
         <h3 mount="yourid"></h3>
-        <p>${window.id}</p>
+        <p>${window.id}<i class="fa" id="copyid">&#xf0c5;</i></p>
     `);
     initmount();
+    var cpel = document.getElementById("copyid");
+    cpel.onclick = function () {
+        this.style.cssText = "color: #1ba784;";
+        this.innerHTML = "&#xf00c;";
+        navigator.clipboard.writeText(window.id);
+        setTimeout(function () {
+            cpel.innerHTML = "&#xf0c5;";
+            cpel.style.cssText = "color: #000000;";
+        }, 750);
+    };
 };
 const showabout = function () {
     new Popup(`
