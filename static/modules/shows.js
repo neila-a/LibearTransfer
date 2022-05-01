@@ -71,6 +71,8 @@ const showhelp = function () {
 const showconn = function () {
     new Popup(`
         <h2 mount="connect"></h2>
+        <h3 mount="yourid"></h3>
+        <p>${window.id}</p>
     `);
     initmount();
 };
