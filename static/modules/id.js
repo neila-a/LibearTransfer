@@ -11,6 +11,7 @@ fpPromise.then(function (fp) {
         debug: 1,
         path: '/peer'
     });
+    document.head.innerHTML = `${document.head.innerHTML}<script src="./modules/connect.js"></script>`;
 }).catch(function (error) {
     return console.error(error);
 });
