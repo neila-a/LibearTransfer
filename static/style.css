@@ -31,6 +31,9 @@ p#jindu, p#title {
 input[type=file] {
     width: 70px;
 }
+input[type=text] {
+    text-align: center;
+}
 p#jindu {
     left: 85%;
 }
@@ -52,6 +55,23 @@ p#title {
     transition: background-color .25s,box-shadow .25s,color .25s,opacity .25s;
     width: 30%;
 }
+@keyframes pop {
+    0% {
+        transform: scale(0);
+    }
+    25% {
+        transform: scale(0.25);
+    }
+    50% {
+        transform: scale(0.5);
+    }
+    75% {
+        transform: scale(0.75);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 @media only screen and (max-device-width: 482.328px) {
     .popup {
         width: 90%;
@@ -65,12 +85,13 @@ p#title {
     }
 }
 .popup {
+    animation: pop 0.1s;
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0 5px 30px #999999;
     box-sizing: border-box;
     height: 390px;
-    opacity: 0;
+    opacity: 1;
     position: absolute;
     top: calc(50% - 200px);
     z-index: 2;
@@ -218,6 +239,7 @@ label {
     cursor: pointer;
 }
 button[type="submit"] {
+    cursor: pointer;
     height: 38px;
     border: 1px solid transparent;
     color: #ffffff;
@@ -294,8 +316,6 @@ svg {
     height: 75px;
 }
 path[stroke] {
-    /* margin: 50px; */
-    /* margin-left: 30px; */
     transform: scale(0.55);
 }
 .peerjs h3 {

@@ -73,6 +73,13 @@ const showconn = function () {
         <h2 mount="connect"></h2>
         <h3 mount="yourid"></h3>
         <p>${window.id}<i class="fa" id="copyid">&#xf0c5;</i></p>
+        <h3 mount="himid"></h3>
+        <from>
+            <input type="text" maxlength="9" minlength="9" required="true" />
+            <br />
+            <br />
+            <button type="submit" mount="openconn"></button>
+        </from>
     `);
     initmount();
     var cpel = document.getElementById("copyid");
@@ -109,7 +116,7 @@ const showabout = function () {
         </a>
         <a href="https://fontawesome.com">
             <p id="fa">
-                <i class="fa fa-flag"></i>
+                <i class="fa">&#xf2b4;</i>
                 Font AweSome
             </p>
         </a>

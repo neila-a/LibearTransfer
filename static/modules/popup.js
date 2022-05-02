@@ -3,7 +3,6 @@ class Popup {
         var random = `popup-box-${Math.random().toString().replace(/\./g, "")}`;
         var box = document.createElement("div");
         box.id = random;
-        box.style.cssText = "opacity: 1; transform: scale(1);";
         box.classList.add("popup");
         box.innerHTML = `
             <span class="close-btn" tabindex="0" role="button" aria-label="关闭" onclick="this.parentElement.outerHTML = '';"></span>

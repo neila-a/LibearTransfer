@@ -20,7 +20,9 @@ if (localStorage.langlist == "undefined" || localStorage.langlist == undefined) 
                 "拖动文件<br>到此处<br>上传",
                 "鸣谢",
                 "<p>LibearTransfer是一个传输工具。</p><p>它可以远程传输文件。</p><p>与众不同的是，</p><p>它生成的ID是唯一的。</p><p>这样，</p><p>就不用每次记码了。</p>",
-                "您的ID"
+                "您的ID",
+                "对方ID",
+                "建立连接"
             ],
             [
                 "en",
@@ -41,7 +43,9 @@ if (localStorage.langlist == "undefined" || localStorage.langlist == undefined) 
                 "Drag file<br>here<br>to upload",
                 "Acknowledge",
                 "<p>Libeartransfer is a transfer tool. </p><p>It can transfer files remotely.</p><p>The difference is that the ID it generates is unique.</p><p>In this way，you do not have to remember the code every time.</p>",
-                "Your ID"
+                "Your ID",
+                "Opposite ID",
+                "Establish connection"
             ],
             [
                 "zh-tr",
@@ -62,7 +66,9 @@ if (localStorage.langlist == "undefined" || localStorage.langlist == undefined) 
                 "拖動檔案<br>到此處<br>上傳",
                 "鳴謝",
                 "<p>LibearTransfer是一個傳輸工具。</p><p>它可以遠程傳輸文件。</p><p>與眾不同的是，</p><p>它生成的ID是唯一的。</p><p>這樣，</p><p>就不用每次記碼了。</p>",
-                "您的ID"
+                "您的ID",
+                "對方ID",
+                "建立連接"
             ]
         ]`.replace(/\n/g, "").replace(/    /g, "")
     );
