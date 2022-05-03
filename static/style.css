@@ -97,7 +97,7 @@ p#title {
     z-index: 2;
     overflow: hidden;
 }
-.popup div {
+.popup > div {
     text-align: center;
     overflow-x: hidden;
     margin: 2%;
