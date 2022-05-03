@@ -6,7 +6,7 @@ class Popup {
         box.classList.add("popup");
         box.innerHTML = `
             <span class="close-btn" tabindex="0" role="button" aria-label="关闭" onclick="this.parentElement.outerHTML = '';"></span>
-            <div style="text-align: center; overflow-x: hidden; margin: 2%;height: 100%;">
+            <div>
                 ${text}
             </div>
         `;

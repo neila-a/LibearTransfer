@@ -97,6 +97,12 @@ p#title {
     z-index: 2;
     overflow: hidden;
 }
+.popup div {
+    text-align: center;
+    overflow-x: hidden;
+    margin: 2%;
+    height: 100%;
+}
 .close-btn, .close-btn-formenu {
     padding: 30px 0 30px 0;
     cursor: pointer;

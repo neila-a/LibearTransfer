@@ -75,13 +75,16 @@ const showconn = function () {
         <p>${window.id}<i class="fa" id="copyid">&#xf0c5;</i></p>
         <h3 mount="himid"></h3>
         <from>
-            <input type="text" maxlength="9" minlength="9" required="true" />
+            <input type="text" maxlength="9" required="true" id="himid" />
             <br />
             <br />
-            <button type="submit" mount="openconn"></button>
+            <button type="submit" mount="openconn" id="connbtn"></button>
         </from>
     `);
     initmount();
+    document.getElementById("connbtn").onclick = function () {
+        window.peerconn.connect(document.getElementById("himid").value);
+    };
     var cpel = document.getElementById("copyid");
     cpel.onclick = function () {
         this.style.cssText = "color: #1ba784;";
