@@ -58,9 +58,14 @@ const showfile = function () {
 };
 const showtext = function () {
     new Popup(`
-        <h2 mount="transtext"></h2>
+        <h2 mount="transtext" id="title"></h2>
+        <textarea rows="1" id="text" /></textarea>
+        <button type="submit" mount="send" id="send"></button>
     `);
     initmount();
+    document.getElementById("send").onclick = function () {
+        window.peerconn;
+    };
 };
 const showhelp = function () {
     new Popup(`

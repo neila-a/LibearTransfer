@@ -4,7 +4,7 @@
     border-radius: 100px;
 }
 :focus-visible {
-    outline: #ffffff auto 0px;
+    outline: none;
 }
 i {
     font-style: normal;
@@ -55,23 +55,6 @@ p#title {
     transition: background-color .25s,box-shadow .25s,color .25s,opacity .25s;
     width: 30%;
 }
-@keyframes pop {
-    0% {
-        transform: scale(0);
-    }
-    25% {
-        transform: scale(0.25);
-    }
-    50% {
-        transform: scale(0.5);
-    }
-    75% {
-        transform: scale(0.75);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
 @media only screen and (max-device-width: 482.328px) {
     .popup {
         width: 90%;
@@ -85,7 +68,6 @@ p#title {
     }
 }
 .popup {
-    animation: pop 0.1s;
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0 5px 30px #999999;
@@ -337,4 +319,9 @@ a {
     margin-left: 10%;
     font-size: 30px;
     cursor: pointer;
+}
+textarea {
+    width: 95%;
+    text-align: left;
+    height: 60%;
 }
