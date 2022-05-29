@@ -1,10 +1,5 @@
 window.mounts = {};
 initmount();
-mount("style").as(`
-    img:not([fpjs]) {
-        margin-top: ${screen.availHeight / 2 - 200}px;
-    }
-`);
 document.body.style.setProperty("--theme-color", localStorage.theme_color);
 document.getElementById("menu-icon").onclick = function () {
     if (document.querySelector('#menu').style.display == 'block') {
@@ -22,11 +17,19 @@ document.getElementById("menu").onclick = function () {
     document.querySelector('#menu-icon').className = 'menu-icon';
     document.querySelector('#menu-icon').innerHTML = '<div></div><div></div><div></div>';
 };
-document.getElementById("app").onclick = function () {
-    document.querySelector('#menu').style.display = 'none';
+const { log } = console;
+document.getElementById("app").onclick = () => {
     var that = document.querySelector('.close-btn-formenu');
-    that.className = 'menu-icon';
-    that.innerHTML = '<div></div><div></div><div></div>';
+    if (that != null) {
+        document.querySelector('#menu').style.display = 'none';
+        that.className = 'menu-icon';
+        that.innerHTML = '<div></div><div></div><div></div>';
+    }
+};
+var createconnobj = document.getElementById("createconn");
+createconnobj.onclick = () => {
+    createconnobj.style.display = "none";
+    showconn();
 };
 /*var value = document.querySelector("progress").value;
 if (value < 10) value = `0${value.toString()}`;

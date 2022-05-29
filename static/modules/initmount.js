@@ -18,5 +18,5 @@ const initmount = function () {
     mount("aboutinfo").as(langs[17]);
     mount("yourid").as(langs[18]);
     mount("himid").as(langs[19]);
-    mount("openconn").as(langs[20])
+    mount("openconn").as(langs[20]);
 }

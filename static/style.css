@@ -40,8 +40,7 @@ p#jindu {
 p#title {
     left: 5%;
 }
-#send {
-    margin: 0 35%;
+#send, #createconn {
     background-color: var(--theme-color);
     border: none;
     box-shadow: 0 5px 30px rgb(65 145 245 / 30%);
@@ -53,7 +52,14 @@ p#title {
     height: 49px;
     margin-bottom: 20px;
     transition: background-color .25s,box-shadow .25s,color .25s,opacity .25s;
+}
+#send {
+    margin: 0 35%;
     width: 30%;
+}
+#createconn {
+    margin: 0 40%;
+    width: 20%;
 }
 @media only screen and (max-device-width: 482.328px) {
     .popup {
@@ -234,6 +240,16 @@ button[type="submit"] {
     font-weight: normal;
     background-color: var(--theme-color);
     padding: 0 18px;
+}
+@media screen and (max-device-height: 960px) {
+    #app > img {
+        margin-top: calc((70% - 249px) / 2);
+    }
+}
+@media screen and (max-device-height: 700px) {
+    #app > img {
+        margin-top: calc((200% - 249px) / 2);
+    }
 }
 img {
     height: 200px;
