@@ -11,7 +11,7 @@
     "upload": "git commit -am \"A commit.\" && git push heroku main"
   },
   "author": "neila",
-  "license": "ISC",
+  "license": "GPL",
   "dependencies": {
     "express": "^4.17.3",
     "http": "^0.0.1-security",
