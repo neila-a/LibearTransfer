@@ -1,4 +1,4 @@
-const initmount = function () {
+const initmount = () => {
     var langs = eval(localStorage.language);
     mount("send").as(langs[2]);
     mount("connect").as(`${langs[3]}`);

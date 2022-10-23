@@ -14,8 +14,8 @@ document.getElementById("menu-icon").onclick = function () {
 };
 document.getElementById("menu").onclick = function () {
     this.style.display = 'none';
-    document.querySelector('#menu-icon').className = 'menu-icon';
-    document.querySelector('#menu-icon').innerHTML = '<div></div><div></div><div></div>';
+    document.getElementById("menu-icon").className = 'menu-icon';
+    document.getElementById("menu-icon").innerHTML = '<div></div><div></div><div></div>';
 };
 const { log } = console;
 document.getElementById("app").onclick = () => {
