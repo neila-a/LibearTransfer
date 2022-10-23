@@ -17,6 +17,6 @@ app.use(express.static(path.join(`${__dirname}/static/`)));
 app.get("/", function (request, response) {
     response.sendFile(`${__dirname}/static/index.html`);
 });
-server.listen(port, function () {
+server.listen(port, () => {
     console.log(`Listening on: ${port}`);
 });
